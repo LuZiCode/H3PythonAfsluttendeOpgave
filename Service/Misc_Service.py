@@ -14,3 +14,6 @@ def exit_program():
 def wait_time(prompt):
     print(f'\n{prompt}')
     time.sleep(1)
+    
+def main_menu_count():
+    return ['1', '2', '3', '4']

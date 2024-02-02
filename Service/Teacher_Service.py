@@ -57,28 +57,6 @@ def update_teacher():
                 return
             else:
                 wait_time("Læren har ikke det fag. Prøv igen....")
-            
-            
-                
-                
-            
-            
-    # name = input("Indtast navnet på læreren, du vil opdatere: ")
-    # teacher = tec.find_teachers(name)  # Antager en metode til at finde en lærer ved navn
-    # if teacher:
-    #     valg = input("Vil du tilføje (1) et nyt fag eller slette (2) et eksisterende fag? Indtast 1 eller 2: ")
-    #     if valg == '1':
-    #         nyt_fag = input("Indtast det fag, du vil tilføje: ")
-    #         lærer.add_subject(nyt_fag)  # Antager en metode til at tilføje et fag til lærerens fagliste
-    #         print(f"Faget {nyt_fag} er tilføjet til {navn}.")
-    #     elif valg == '2':
-    #         fag = input("Indtast det fag, du vil slette: ")
-    #         lærer.remove_subject(fag)  # Antager en metode til at fjerne et fag fra lærerens fagliste
-    #         print(f"Faget {fag} er fjernet fra {navn}.")
-    #     else:
-    #         print("Ugyldigt valg.")
-    # else:
-    #     print("Læreren blev ikke fundet.")
     
 def list_teachers(display_subjects):
     if display_subjects:

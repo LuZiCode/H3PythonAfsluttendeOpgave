@@ -8,7 +8,6 @@ def clear_console():
 def exit_program():
     clear_console()
     wait_time("Programmet lukkes....")
-    time.sleep(1)
     exit()
     
 def wait_time(prompt):

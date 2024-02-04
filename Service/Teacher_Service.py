@@ -8,21 +8,28 @@ tec = TEC()
 def create_teacher():
     clear_console()
     print("[OPRETTELSE AF LÆRER]\n")
-    first_name = input("Indtast lærerens fornavn: ").capitalize()
-    last_name = input("Indtast lærerens efternavn: ").capitalize()
-    subjects = pick_subjects()
-    try:
-        teacher = Teacher(first_name, last_name, subjects)
-        tec.create_teacher(teacher)
-        clear_console()
-        wait_time(f"{first_name} blev oprettet...")
-    except:
-        wait_time("Der skete den fejl under oprettelse af læren...")    
+    while True:
+        first_name = input("Indtast lærerens fornavn: ").capitalize()
+        last_name = input("Indtast lærerens efternavn: ").capitalize()
+        subjects = pick_subjects()
+        try:
+            if tec.find_teachers(first_name + " " +last_name):
+                wait_time("Læren er allerede oprettet. Prøv igen....")
+                continue
+            teacher = Teacher(first_name, last_name, subjects)
+            tec.create_teacher(teacher)
+            clear_console()
+            wait_time(f"{first_name} blev oprettet...")
+            return
+        except:
+            wait_time("Der skete den fejl under oprettelse af læren...")    
 
 def update_teacher():
     clear_console()
     print("\n[OPDATERING AF LÆRER]")
     chosen_teacher = list_teachers(False)
+    if chosen_teacher is None:
+        return
     teacherObject = tec.find_teachers(chosen_teacher)
     if teacherObject:
         print(f'\n{chosen_teacher} er tilmeldt følgende fag:')
@@ -64,6 +71,9 @@ def list_teachers(display_subjects):
     print("\n[LISTE AF ALLE LÆRER]")
     teachers_dict = {}
     index = 1
+    if not tec.teachers:
+        wait_time("Der er ingen lærerer!")
+        return None
     for teacher in tec.teachers:
         print("\n")
         full_name = f"{teacher.firstname} {teacher.lastname}"

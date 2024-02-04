@@ -1,5 +1,4 @@
 from Class_Handling.Person_Class import Person
-
 class Teacher(Person):
     def __init__(self, firstname, lastname, subject=[]):
         super().__init__(firstname, lastname)

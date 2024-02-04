@@ -1,4 +1,4 @@
-from Class_Handling.Teacher_Class import Teacher
+# from Class_Handling.Teacher_Class import Teacher
 
 class TEC:
     def __init__(self):
